@@ -10,25 +10,30 @@ import { PaisService } from '../../services/pais.service';
 })
 export class PorPaisComponent {
 
-  termino: string = '';
   hayError: boolean = false;
   paises: Country[] = [];
 
   constructor( private paisService: PaisService ) { }
 
-  buscar() {
+  buscar(termino: string) {
     this.hayError = false;
-    console.log(this.termino);
 
-    this.paisService.buscarPais(this.termino).subscribe(
+    this.paisService.buscarPais(termino).subscribe(
       (paises) => {
         console.log(paises);
         this.paises = paises;
       }, (err) => {
+        console.log(err);
         this.hayError = true;
         this.paises = [];
       }
     )
+  }
+
+  sugerencias( termino: string) {
+    console.log(termino);
+    this.hayError = false;
+    // TODO: Crear sugerencias
   }
 
 }

@@ -5,7 +5,7 @@
         type="text"
         name="termino"
         class="form-control"
-        placeholder="Buscar país..." 
+        [placeholder]="placeholder" 
         [(ngModel)]="termino"
         (input)="teclaPresionada()"
         />

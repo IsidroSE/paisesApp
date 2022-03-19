@@ -1,27 +1,31 @@
-<h3>Buscar por region <small> {{ regionActiva | titlecase }} </small></h3>
+<div class="animate__animated animate__fadeIn animate__faster">
 
-<h5>Seleccione la region</h5>
+    <h3>Buscar por region <small> {{ regionActiva | titlecase }} </small></h3>
 
-<div class="row">
-    <div class="col">
-        <!-- [class.btn-primary]="region === regionActiva" -->
-        <!-- [ngClass]="{
-            'btn-primary': regionActiva === region,
-            'bin-outline-primary': regionActiva !== region
-        }" -->
-        <!-- [class]="nombreFuncionQueDevuelvaLasClases()" -->
-        <button 
-        *ngFor="let region of regiones"
-        class="btn"
-        [class]="getClaseCSS(region)"
-        (click)="activarRegion( region )">
-            {{ region }}
-        </button>
+    <h5>Seleccione la region</h5>
+
+    <div class="row">
+        <div class="col">
+            <!-- [class.btn-primary]="region === regionActiva" -->
+            <!-- [ngClass]="{
+                'btn-primary': regionActiva === region,
+                'bin-outline-primary': regionActiva !== region
+            }" -->
+            <!-- [class]="nombreFuncionQueDevuelvaLasClases()" -->
+            <button 
+            *ngFor="let region of regiones"
+            class="btn"
+            [class]="getClaseCSS(region)"
+            (click)="activarRegion( region )">
+                {{ region }}
+            </button>
+        </div>
     </div>
-</div>
 
-<div class="alert alert-danger" *ngIf="hayError">
-    No se encontró nada con el término {{ this.regionActiva }}
+    <div class="alert alert-danger" *ngIf="hayError">
+        No se encontró nada con el término {{ this.regionActiva }}
+    </div>
+
 </div>
 
 <div class="row">
